@@ -18,6 +18,12 @@ if (env.WEBPACK_VERBOSE) {
 }
 
 module.exports = [
+  
+    {    
+    test: /\.mjs$/,
+    include: /node_modules/,
+    type: "javascript/auto"
+  },
   {
     test: /\.(js|jsx)$/,
     use: [{
@@ -78,6 +84,8 @@ module.exports = [
               `${nodeModules}/patternfly/dist/sass/patternfly`,
               `${nodeModules}/font-awesome/scss`,
               `${nodeModules}/@manageiq/font-fabulous/assets/stylesheets`,
+              ".",
+              "node_modules"
             ],
             implementation: require('sass').default,
           },
